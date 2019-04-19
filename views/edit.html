@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body{
+            background:#fff;
+        }
+        .container>div label{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container main">
+        <div class="page-header">
+            <h2>添加学生</h2>
+            <hr>
+            <a href="#" class="btn btn-success">添加学生</a>
+        </div>
+        <div>
+            <form role="form" action="/edit" method="post">
+                <!-- 
+                     用来放一些不希望被用户看见，但是需要被提交到服务端的数据
+                -->
+                <input type="hidden" name="id" value="{{ student.id }}">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" placeholder="name" id="name" name="name" class="form-control" value="{{student.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="gender">性别</label>
+                    <div>
+                        <input type="radio" value="男" id="gender" name="gender" checked>男
+                        <input type="radio" value="女" id="gender" name="gender">女
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">年龄</label>
+                    <input type="number" id="age" name="age" class="form-control" value="{{student.age}}">
+                </div>
+                <div class="form-group">
+                    <label for="hobbies">爱好</label>
+                    <input type="text" id="hobbies" name="hobbies" class="form-control" value="{{student.hobbies}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
